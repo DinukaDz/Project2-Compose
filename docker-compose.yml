@@ -10,8 +10,6 @@ services:
       - docker-certs-ca:/certs/ca
       - docker-certs-client:/certs/client
       - jenkins-data:/var/jenkins_home
-    networks:
-      - jenkins
 
   jenkins:
     image: jenkins/jenkins:lts-jdk11
@@ -28,15 +26,9 @@ services:
     ports:
       - 8080:8080
       - 50000:50000
-    networks:
-      - jenkins
-
-networks:
-  jenkins:
 
 volumes:
   docker-certs-ca:
   docker-certs-client:
   jenkins-data:
-
 
